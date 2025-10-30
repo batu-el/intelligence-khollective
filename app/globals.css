@@ -1,0 +1,65 @@
+:root {
+  --bg: #f5f3ee; /* dirty white */
+  --fg: #0a0a0a; /* near-black */
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.wrap {
+  max-width: 720px;
+  padding: 56px 20px;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin: 0 0 20px 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin: 6px 0;
+}
+
+li::before {
+  content: "- ";
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 15px;
+  }
+  .wrap {
+    padding: 40px 16px;
+  }
+  h1 {
+    font-size: 24px;
+    letter-spacing: 0.4px;
+    margin-bottom: 16px;
+  }
+  li {
+    margin: 10px 0;
+  }
+}
+
+
