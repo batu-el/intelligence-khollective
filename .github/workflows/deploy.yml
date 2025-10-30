@@ -40,7 +40,7 @@ jobs:
       - name: Build and export static site
         env:
           NEXT_BASE_PATH: ${{ steps.base.outputs.base }}
-        run: npm run export
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
