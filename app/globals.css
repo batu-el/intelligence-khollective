@@ -45,6 +45,38 @@ li::before {
   content: "- ";
 }
 
+a {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+article {
+  margin-top: 20px;
+}
+
+article h1 {
+  margin-bottom: 16px;
+}
+
+article p {
+  margin: 12px 0;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 16px 0 8px 0;
+}
+
 @media (max-width: 480px) {
   body {
     font-size: 15px;
