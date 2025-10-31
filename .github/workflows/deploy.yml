@@ -40,10 +40,25 @@ jobs:
       - name: Build and export static site
         env:
           NEXT_BASE_PATH: ${{ steps.base.outputs.base }}
-        run: npm run build
+        run: |
+          echo "Building with base path: ${{ steps.base.outputs.base }}"
+          npm run build
+          echo "Build output structure:"
+          ls -la ./out/ || echo "out directory not found"
+          ls -la ./out/ | head -20 || echo "out directory empty"
 
       - name: Add .nojekyll file
         run: touch ./out/.nojekyll
+
+      - name: Verify build output
+        run: |
+          if [ -f "./out/index.html" ]; then
+            echo "✓ index.html found"
+          else
+            echo "✗ index.html NOT found - listing out directory:"
+            find ./out -type f | head -20
+            exit 1
+          fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

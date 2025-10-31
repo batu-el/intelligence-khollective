@@ -1,12 +1,11 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === "production";
-const basePath = process.env.NEXT_BASE_PATH || ""; // e.g. "/intelligence-khollective"
+const basePath = process.env.NEXT_BASE_PATH || "";
 
 const nextConfig = {
   reactStrictMode: true,
-  output: "export", // enable next export for static hosting
-  basePath: basePath || undefined,
-  assetPrefix: basePath ? `${basePath}/` : undefined,
+  output: "export",
+  ...(basePath && { basePath }),
+  ...(basePath && { assetPrefix: basePath }),
   trailingSlash: true,
 };
 
