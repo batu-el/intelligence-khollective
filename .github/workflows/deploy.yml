@@ -32,7 +32,7 @@ jobs:
         run: |
           REPO_NAME=$(echo "$GITHUB_REPOSITORY" | cut -d'/' -f2)
           echo "repo=$REPO_NAME" >> $GITHUB_OUTPUT
-          echo "base=/$(echo $REPO_NAME)" >> $GITHUB_OUTPUT
+          echo "base=/$REPO_NAME" >> $GITHUB_OUTPUT
 
       - name: Install dependencies
         run: npm ci
@@ -41,6 +41,9 @@ jobs:
         env:
           NEXT_BASE_PATH: ${{ steps.base.outputs.base }}
         run: npm run build
+
+      - name: Add .nojekyll file
+        run: touch ./out/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
